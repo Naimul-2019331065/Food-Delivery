@@ -25,7 +25,7 @@ const ExploreMenu = (props) => {
               alt="food image"
               className={`w-[7.5vw] min-w-20 border rounded-[50%] ${catagory===item.menu_name?"border-orange-600 border-4 p-0.5":""}`}
             />
-            <p className="mt-2.5 text-[#747474] text-[max(1.4vw,16px)] ">
+            <p className="mt-2.5 text-[#747474] text-[max(1.4vw,16px)]">
               {item.menu_name}
             </p>
           </div>

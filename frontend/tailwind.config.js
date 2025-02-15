@@ -17,7 +17,8 @@ export default {
         },
       },
       animation: {
-        fadeIn: "fadeIn 3s",
+        fadeIn3: "fadeIn 3s",
+        fadeIn1: "fadeIn 1s"
       },
     },
   },
