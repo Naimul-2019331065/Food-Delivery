@@ -10,7 +10,7 @@ const ExploreMenu = (props) => {
   }
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5" id = "exploreMenu">
       <h1 className="text-3xl font-[500] text-[#262626]">Explore Our Menu</h1>
       <p className="max-w-[60%] text-[#808080] text-base max-xl:max-w-[80%] max-lg:text-[14px] max-lg:max-w-[100%]">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident at,

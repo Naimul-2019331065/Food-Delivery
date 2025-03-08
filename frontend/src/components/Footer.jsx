@@ -3,7 +3,11 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Footer = () => {
   return (
-    <div className="text-[#d9d9d9] bg-[#323232] flex flex-col items-center gap-5 py-5 px-[8vw] pt-[80px] mt-24 ">
+    // max-md:flex max-md:flex-col max-md:gap-[35px]
+    <div
+      className="text-[#d9d9d9] bg-[#323232] flex flex-col items-center gap-5 py-5 px-[8vw] pt-[80px] mt-24"
+      id="footer"
+    >
       <div className="grid grid-cols-[2fr_1fr_1fr] w-[100%] gap-20 max-md:flex max-md:flex-col max-md:gap-[35px]">
         {/* ####### footer content left left ############# */}
         <div className="flex flex-col items-start gap-5">
