@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { assets } from "../assets/frontend_assets/assets";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../Contexts/StoreContext";
 function Navbar({onsetShowLogin}) {
   const [menu, setMenu] = useState("home");
+  const {getTotalCartAmount} = useContext(StoreContext);
   return (
     <nav className="py-5 mx-auto flex items-center justify-between">
       <Link to={"/"}>
@@ -74,7 +76,13 @@ function Navbar({onsetShowLogin}) {
               className="max-[900px]:w-5 max-[1050px]:w-[22px] w-6 cursor-pointer"
             />
           </Link>
-          <div className="absolute bg-red-500 min-h-[10px] min-w-[10px] border rounded-[5px] -top-2 -right-2"></div>
+          <div
+            className={
+              getTotalCartAmount() === 0
+                ? ""
+                : "absolute bg-red-500 min-h-[10px] min-w-[10px] border rounded-[5px] -top-2 -right-2"
+            }
+          ></div>
         </div>
         <button
           className="text-base bg-transparent text-[#49557e] border-[1px] border-solid border-red-400
