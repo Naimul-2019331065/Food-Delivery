@@ -5,6 +5,8 @@ import { Home } from "./pages/Home";
 import Footer from "./components/Footer";
 import LoginPopup from "./components/LoginPopup";
 import { Cart } from "./pages/Cart";
+import Placeorder from "./pages/Placeorder";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -13,10 +15,12 @@ const App = () => {
     <>
       {showLogin ? <LoginPopup onsetShowLogin={setShowLogin} /> : <></>}
       <div className="w-[80%] m-auto">
-        <Navbar onsetShowLogin={setShowLogin} />
+        <Navbar onsetShowLogin={setShowLogin}/>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/order" element={<Placeorder />} />
         </Routes>
       </div>
       <Footer />

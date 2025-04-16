@@ -1,6 +1,7 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { StoreContext } from "../Contexts/StoreContext";
+import { Link } from "react-router-dom";
 
 const FoodItem = ({ key, item }) => {
   // console.log(item);
@@ -11,7 +12,7 @@ const FoodItem = ({ key, item }) => {
 
   // cartItems, addToCart and removeFrom cart funtionalitis from context
   // ##################################
-  const {CartItems, addToCart, removeFromCart} = useContext(StoreContext);
+  const { CartItems, addToCart, removeFromCart } = useContext(StoreContext);
   // console.log(CartItems[0])
   function handleClick(operation) {
     if (operation === "+") setItemCount((prev) => prev + 1);
@@ -63,7 +64,19 @@ const FoodItem = ({ key, item }) => {
           />
         </div>
         <p className="text-[12px] text-[#676767]">{description}</p>
-        <p className="text-[22px] text-orange-600 font-[500] m-0">${price}</p>
+        {/* <div className="flex justify-between items-center"> */}
+          <p className="text-[22px] text-orange-600 font-[500] m-0">${price}</p>
+          {/* <p>
+            {CartItems[id] ? (
+              <Link to={"/Cart"}>
+                {" "}
+                <p className="text-gray-700 bg-green-300 p-1 border rounded-md">View your cart</p>{" "}
+              </Link>
+            ) : (
+              ""
+            )}
+          </p>
+        </div> */}
       </div>
     </div>
   );

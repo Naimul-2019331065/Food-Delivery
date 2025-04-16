@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../Contexts/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
   const { CartItems, food_list, removeFromCart, getTotalCartAmount } =
     useContext(StoreContext);
+  const navigate = useNavigate();
   return (
     // cart
     <div className="animate-fadeIn0_5 mt-[100px]">
@@ -51,7 +53,7 @@ export const Cart = () => {
       <div className="mt-20 flex justify-between gap-[max(12vw,20px)] max-md:flex-col-reverse">
         {/* Cart Total */}
         <div className="flex-1 flex flex-col gap-5">
-          <h2>Cart Totals</h2>
+          <h2 className="text-[24px] font-semibold">Cart Totals</h2>
           <div>
             {/* Subtotal */}
             <div className="flex justify-between text-[#555]">
@@ -62,17 +64,22 @@ export const Cart = () => {
             {/* Delivery fee */}
             <div className="flex justify-between text-[#555]">
               <p>Delivery Fee</p>
-              <p>${2}</p>
+              <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr className="my-2.5" />
 
             {/* Total */}
             <div className="flex justify-between text-[#555]">
               <b>Total</b>
-              <b>${getTotalCartAmount() + 2}</b>
+              <b>
+                ${getTotalCartAmount() + (getTotalCartAmount() === 0 ? 0 : 2)}
+              </b>
             </div>
           </div>
-          <button className="text-white bg-orange-500 w-[max(15vw,200px)] py-3 border rounded">
+          <button
+            onClick={() => navigate("/order")}
+            className="text-white bg-orange-500 w-[max(15vw,200px)] py-3 border rounded"
+          >
             Proceed to checkout
           </button>
         </div>
@@ -83,7 +90,7 @@ export const Cart = () => {
               If you have a promo cede, Enter it here
             </p>
             {/* promoceode input */}
-            <div className="mt-2.5 flex justify-between items-center bg-[#eaeaea] bordee rounded">
+            <div className="mt-2.5 flex justify-between items-center bg-[#eaeaea] border rounded">
               <input
                 type="text"
                 placeholder="promo code"

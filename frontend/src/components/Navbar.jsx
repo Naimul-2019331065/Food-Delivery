@@ -7,18 +7,25 @@ function Navbar({onsetShowLogin}) {
   const [menu, setMenu] = useState("home");
   const {getTotalCartAmount} = useContext(StoreContext);
   return (
-    <nav className="py-5 mx-auto flex items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-white py-5 mx-auto flex items-center justify-between shadow-sm">
       <Link to={"/"}>
         <img
           src={assets.logo}
           alt="logo"
+          onClick={() => {
+            setMenu("home");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="w-[150px] max-[1050px]:w-[140px] max-[900px]:w-[120px] cursor-pointer"
         />
       </Link>
       <ul className="font-outfit flex gap-5 uppercase text-[#49557e]  max-[1050px]:text-[15px] max-[900px]:gap-[15px] max-[900px]:text-[14px] max-[750px]:hidden">
         <Link
           to="/"
-          onClick={() => setMenu("home")}
+          onClick={() => {
+            setMenu("home");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className={
             menu === "home"
               ? "border-b-2 border-[#49775e] cursor-pointer"
