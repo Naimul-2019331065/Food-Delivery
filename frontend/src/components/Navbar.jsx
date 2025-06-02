@@ -7,7 +7,7 @@ function Navbar({onsetShowLogin}) {
   const [menu, setMenu] = useState("home");
   const {getTotalCartAmount} = useContext(StoreContext);
   return (
-    <nav className="sticky top-0 z-50 bg-white py-5 mx-auto flex items-center justify-between shadow-sm">
+    <nav className="sticky top-0 z-10 bg-white py-5 mx-auto flex items-center justify-between shadow-sm">
       <Link to={"/"}>
         <img
           src={assets.logo}
