@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { assets, url } from "../assets/assets";
+import { toast } from "react-toastify";
 
 const Add = () => {
     const [image, setImage] = useState(false);
@@ -38,6 +39,10 @@ const Add = () => {
             });
             setImage(false);
             setImagePreview(false);
+            toast.success(res.data.message);
+        } 
+        else {
+          toast.error(res.data.message);
         }
     }
 

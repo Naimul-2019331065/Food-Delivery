@@ -3,7 +3,7 @@ import { assets } from "../assets/frontend_assets/assets";
 import { StoreContext } from "../Contexts/StoreContext";
 import { Link } from "react-router-dom";
 
-const FoodItem = ({ key, item }) => {
+const FoodItem = ({ item }) => {
   // console.log(item);
   //   distructure of items information
   const { _id, name, description, price, image } = item;
@@ -12,7 +12,7 @@ const FoodItem = ({ key, item }) => {
 
   // cartItems, addToCart and removeFrom cart funtionalitis from context
   // ##################################
-  const { CartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { CartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
   // console.log(CartItems[0])
   function handleClick(operation) {
     if (operation === "+") setItemCount((prev) => prev + 1);
@@ -24,7 +24,7 @@ const FoodItem = ({ key, item }) => {
           {/* Food Item Image */}
           <div className="relative">
               <img
-                  src={image}
+                  src={url + "/images/" + image}
                   alt="food item image"
                   className="w-[100%] border rounded-t-2xl"
               />

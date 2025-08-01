@@ -3,25 +3,25 @@ import foodModel from "../models/foodModel.js";
 
 // add food item
 const addFood = async (req, res) => {
-    let image_filename = `${req.file.filename}`;
+   const image_filename = req.file ? req.file.filename : "";
 
-    console.log(req.body)
-    console.log(req.file);
+    console.log(req.file.filename);
 
-    const food = new foodModel({
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      category: req.body.category,
-      image: image_filename,
-    });
-    try {
-      await food.save();
-      res.json({ success: true, message: "Food added succesfully" });
-    } catch (error) {
-      console.log(error);
-      res.json({ success: false, message: "Error" });
-    }
+   const food = new foodModel({
+       name: req.body.name,
+       description: req.body.description,
+       price: req.body.price,
+       category: req.body.category,
+       image: image_filename, // only save the filename
+   });
+
+   try {
+       await food.save();
+       res.json({ success: true, message: "Food added successfully" });
+   } catch (error) {
+       console.log(error);
+       res.status(500).json({ success: false, message: "Error adding food" });
+   }
 };
 
 // remove food item
